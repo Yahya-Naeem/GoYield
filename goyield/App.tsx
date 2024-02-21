@@ -13,8 +13,9 @@ import {
   Colors,
 } from 'react-native/Libraries/NewAppScreen';
 
+import SignIn from './components/login/SignIn.jsx';
 
-function App(): React.JSX.Element {
+function App () {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
@@ -34,7 +35,7 @@ function App(): React.JSX.Element {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-            <Text>Yahya</Text>
+            <SignIn />
         </View>
       </ScrollView>
     </SafeAreaView>
