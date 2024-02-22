@@ -35,6 +35,7 @@ function App () {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
+            <Text> Heading </Text>
             <SignIn />
         </View>
       </ScrollView>
