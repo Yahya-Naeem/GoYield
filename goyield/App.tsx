@@ -8,58 +8,24 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
-
+import AppStyles from './styles/Styles.jsx';
 import {
   Colors,
 } from 'react-native/Libraries/NewAppScreen';
 
 import SignIn from './components/login/SignIn.jsx';
-
-function App () {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
+import Login from './screens/login/Login.jsx';
+ function App () {
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
+    <SafeAreaView style={[AppStyles.background]}>
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-            <Text> Heading </Text>
-            <SignIn />
-        </View>
+        contentContainerStyle={AppStyles.container}
+        >
+          <Login />  
       </ScrollView>
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
 
 export default App;
