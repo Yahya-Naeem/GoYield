@@ -1,4 +1,7 @@
 import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import Ellipse from './assets/svgs/Ellipse.svg';
+import TopEllipse from './assets/svgs/TopEllipse.svg';
 import {
   SafeAreaView,
   ScrollView,
@@ -9,20 +12,24 @@ import {
   View,
 } from 'react-native';
 import AppStyles from './styles/Styles.jsx';
-import {
-  Colors,
-} from 'react-native/Libraries/NewAppScreen';
-
-import SignIn from './components/login/SignIn.jsx';
 import Login from './screens/login/Login.jsx';
+import Signup from './components/signup/SignUp.jsx';
+import OuterTabs from './navigations/outernavigator/Navigator.jsx';
  function App () {
   return (
     <SafeAreaView style={[AppStyles.background]}>
       <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
         contentContainerStyle={AppStyles.container}
         >
-          <Login />  
+          <View style={{left:-20,top:0}}>
+              <Ellipse width={165} height={165} />
+            </View>
+          <View style={{position:'absolute',top:-20,left:0}}>
+              <TopEllipse width={165} height={165} />
+          </View>
+          <NavigationContainer>
+            <OuterTabs />
+          </NavigationContainer>
       </ScrollView>
     </SafeAreaView>
   );

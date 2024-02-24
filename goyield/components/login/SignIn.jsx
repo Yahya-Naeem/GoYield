@@ -3,9 +3,10 @@ import React from 'react';
 import * as Yup from 'yup';
 import { Formik, Form, Field } from 'formik';
 import AppStyles from '../../styles/Styles';
-import App from '../../App';
+import { useNavigation } from '@react-navigation/native';
 
 const SignIn = () => {
+  const navigation = useNavigation();
   const validateSchema = Yup.object().shape({
     userId: Yup.string().required('Required'),
     password: Yup.string().required('Required'),
@@ -77,7 +78,14 @@ const handleSubmit = async (values, { setSubmitting, resetForm }) => {
             
           </View>
           <View style={AppStyles.itemContainer}>
-          <Text style={[AppStyles.fontFamily,{fontSize:17}]}> Don't have an Account? <Text  style={{fontFamily:'Poppins Bold',color:'#1C5739',}}> Sign up</Text></Text>
+          <Text style={[AppStyles.fontFamily,{fontSize:17}]}> 
+          Don't have an Account? 
+          <Text  
+          style={{fontFamily:'Poppins Bold',color:'#1C5739',}}
+          onPress={() => navigation.navigate('Signup')}
+          > Sign up
+          </Text>
+          </Text>
           </View>
 
         </View>
