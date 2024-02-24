@@ -109,8 +109,8 @@ export default function SignUp (){
 
           <View style={AppStyles.itemContainer}>
           <Text style={[AppStyles.fontFamily,{fontSize:17}]}> Already have an Account? <Text  
-          style={{fontFamily:'Poppins Bold',color:'#1C5739',}}
-          onPress={() => navigation.navigate('Signin')}
+            style={{fontFamily:'Poppins Bold',color:'#1C5739',}}
+            onPress={() => navigation.navigate('Signin')}
           >Sign in
           </Text></Text>
           </View>

@@ -37,6 +37,7 @@ const handleSubmit = async (values, { setSubmitting, resetForm }) => {
       {({ handleChange, handleBlur, handleSubmit, resetForm, values, errors, touched, isSubmitting, isValid }) => (
         <View style={{gap:20}}>
           {/**Id */}
+          
           <View style={[AppStyles.itemContainer]}>
             <TextInput
               style={[AppStyles.input,AppStyles.fontFamily]}
