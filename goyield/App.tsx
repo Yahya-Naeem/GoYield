@@ -14,7 +14,7 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 import SignIn from './components/login/SignIn.jsx';
-
+import Signup from './components/signup/SignUp.jsx';
 function App () {
   const isDarkMode = useColorScheme() === 'dark';
 
@@ -35,8 +35,7 @@ function App () {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-            <Text> Heading </Text>
-            <SignIn />
+            <Signup />
         </View>
       </ScrollView>
     </SafeAreaView>

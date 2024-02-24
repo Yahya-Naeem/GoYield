@@ -24,3 +24,5 @@ export const MyReactNativeForm = props => (
     )}
   </Formik>
 );
+
+export default MyReactNativeForm;
