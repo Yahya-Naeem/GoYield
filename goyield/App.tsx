@@ -1,4 +1,7 @@
 import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import Ellipse from './assets/svgs/Ellipse.svg';
+import TopEllipse from './assets/svgs/TopEllipse.svg';
 import {
   SafeAreaView,
   ScrollView,
@@ -8,57 +11,28 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
-
-import {
-  Colors,
-} from 'react-native/Libraries/NewAppScreen';
-
-import SignIn from './components/login/SignIn.jsx';
+import AppStyles from './styles/Styles.jsx';
+import Login from './screens/login/Login.jsx';
 import Signup from './components/signup/SignUp.jsx';
-function App () {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
+import OuterTabs from './navigations/outernavigator/Navigator.jsx';
+ function App () {
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
+    <SafeAreaView style={[AppStyles.background]}>
       <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-            <Signup />
-        </View>
+        contentContainerStyle={AppStyles.container}
+        >
+          <View style={{left:-20,top:0}}>
+              <Ellipse width={165} height={165} />
+            </View>
+          <View style={{position:'absolute',top:-20,left:0}}>
+              <TopEllipse width={165} height={165} />
+          </View>
+          <NavigationContainer>
+            <OuterTabs />
+          </NavigationContainer>
       </ScrollView>
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
 
 export default App;
