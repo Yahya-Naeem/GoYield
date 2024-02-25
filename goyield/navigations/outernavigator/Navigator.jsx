@@ -2,6 +2,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import SignupScreen from '../../screens/signup/SignupScreen.jsx';
 import Login from '../../screens/login/Login.jsx';
 import WelcomeScreen from '../../screens/welcome/WelcomeScreen.jsx';
+import ForgotPassword from '../../components/forgotpassword/ForgotPassword.jsx';
 import HomeScreen from '../../screens/home/HomeScreen.jsx';
 const Tab = createBottomTabNavigator();
 
@@ -33,9 +34,9 @@ export default function OuterTabs() {
               tabBarStyle: { display: "none" },
            }}
           />
-           <Tab.Screen
-            name="InnerNavigator"
-            component={HomeScreen}
+          <Tab.Screen
+            name="ForgotPassword"
+            component={ForgotPassword}
             options={{
               tabBarStyle: { display: "none" },
            }}
