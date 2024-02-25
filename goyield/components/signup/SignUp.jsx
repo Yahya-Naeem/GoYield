@@ -103,6 +103,7 @@ export default function SignUp (){
             >
               <Text style={[{fontFamily:'Poppins Bold'} , AppStyles.buttonText]}>
                 {isSubmitting ? 'Signing up...' : 'SignUp'}
+
               </Text>
             </Pressable>
           </View>
