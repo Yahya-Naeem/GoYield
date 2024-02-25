@@ -3,8 +3,11 @@ import {View,Text} from 'react-native';
 
 export default function Home() {
   return (
-    <View>
-      
+    {/* Button and options */}
+    <View>  
+      <View>
+    
+      </View>
     </View>
   )
 };
