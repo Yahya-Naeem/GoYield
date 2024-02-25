@@ -3,6 +3,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import SignupScreen from '../../screens/signup/SignupScreen.jsx';
 import Login from '../../screens/login/Login.jsx';
 import WelcomeScreen from '../../screens/welcome/WelcomeScreen.jsx';
+import ForgotPassword from '../../components/forgotpassword/ForgotPassword.jsx';
 const Tab = createBottomTabNavigator();
 
 export default function OuterTabs() {
@@ -34,8 +35,8 @@ export default function OuterTabs() {
            }}
           />
           <Tab.Screen
-            name="InnerNavigator"
-            component={InnerNavigator}
+            name="ForgotPassword"
+            component={ForgotPassword}
             options={{
               tabBarStyle: { display: "none" },
            }}

@@ -4,12 +4,12 @@ import * as Yup from 'yup';
 import { Formik, Form, Field } from 'formik';
 import AppStyles from '../../styles/Styles';
 import { useNavigation } from '@react-navigation/native';
+import { ALERT_TYPE, Dialog, AlertNotificationRoot, Toast } from 'react-native-alert-notification';
 
-const SignIn = () => {
+const ForgotPassword = () => {
   const navigation = useNavigation();
   const validateSchema = Yup.object().shape({
     userId: Yup.string().required('Required'),
-    password: Yup.string().required('Required'),
   });
 
 const handleSubmit = async (values, { setSubmitting, resetForm }) => {
@@ -30,7 +30,7 @@ const handleSubmit = async (values, { setSubmitting, resetForm }) => {
 
   return (
       <Formik
-      initialValues={{ userId: '', password: '' }}
+      initialValues={{ userId: ''}}
       validationSchema={validateSchema}
       onSubmit={handleSubmit}
       >
@@ -50,26 +50,7 @@ const handleSubmit = async (values, { setSubmitting, resetForm }) => {
               {touched.userId && errors.userId && <Text style={AppStyles.inputError}>{errors.userId}</Text>}
             </View>
           </View>
-            {/**Password */}
-          <View style={[AppStyles.itemContainer]}>
-            <TextInput
-              style={[AppStyles.input,AppStyles.fontFamily]}
-              placeholderStyle
-              onChangeText={handleChange('password')}
-              onBlur={handleBlur('password')}
-              value={values.password}
-              placeholder="Enter Password"
-              secureTextEntry={true}
-            />
-          <Text  
-            style={{fontFamily:'Poppins',color:'#1C5739',alignSelf: 'flex-end', paddingRight: 35,}}
-            onPress={() => navigation.navigate('ForgotPassword')}
-          > Forgot Password? 
-          </Text>
-            <View style={{ width:'80%',alignItems:'flex-start'}}>
-              {touched.userId && errors.userId && <Text style={AppStyles.inputError}>{errors.userId}</Text>}
-            </View>
-          </View>
+          
           {/**Button */}
           <View style={AppStyles.itemContainer}>
             <Pressable
@@ -78,14 +59,29 @@ const handleSubmit = async (values, { setSubmitting, resetForm }) => {
               style={[AppStyles.button,{marginTop:86}]}
             >
               <Text style={[{fontFamily:'Poppins Bold'} , AppStyles.buttonText]}>
-                {isSubmitting ? 'Logging In...' : 'Login'}
+                {isSubmitting ? 'Submitting...' : 'Submit'}
               </Text>
             </Pressable>
-            
           </View>
+          <AlertNotification.Root>
+          <View>
+            <Button 
+                style={{color:'black'}}
+                title={'dialog box'} 
+                onPress={() =>
+                Dialog.show({
+                type: ALERT_TYPE.SUCCESS,
+                title: 'Success',
+                textBody: 'Password has been sent to your email ',
+                button: 'close',
+                })}
+            />
+           </View>
+           </AlertNotification.Root>
+
           <View style={AppStyles.itemContainer}>
           <Text style={[AppStyles.fontFamily,{fontSize:17}]}> 
-          Don't have an Account? 
+          GO back to 
           <Text  
           style={{fontFamily:'Poppins Bold',color:'#1C5739',}}
           onPress={() => navigation.navigate('Signup')}
@@ -100,4 +96,4 @@ const handleSubmit = async (values, { setSubmitting, resetForm }) => {
   );
 };
 
-export default SignIn;
+export default ForgotPassword;
