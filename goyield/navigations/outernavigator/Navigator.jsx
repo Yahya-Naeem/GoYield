@@ -33,6 +33,13 @@ export default function OuterTabs() {
               tabBarStyle: { display: "none" },
            }}
           />
+          <Tab.Screen
+            name="InnerNavigator"
+            component={InnerNavigator}
+            options={{
+              tabBarStyle: { display: "none" },
+           }}
+          />
       </Tab.Navigator>
   );
 }

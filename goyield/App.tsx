@@ -12,8 +12,6 @@ import {
   View,
 } from 'react-native';
 import AppStyles from './styles/Styles.jsx';
-import Login from './screens/login/Login.jsx';
-import Signup from './components/signup/SignUp.jsx';
 import OuterTabs from './navigations/outernavigator/Navigator.jsx';
  function App () {
   return (
