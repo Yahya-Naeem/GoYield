@@ -1,16 +1,18 @@
 import React from 'react';
-import { Button, TextInput, View, Text, Pressable, StyleSheet } from 'react-native';
-import { Formik, Form, Field } from 'formik';
+import { TextInput, View, Text, Pressable, StyleSheet } from 'react-native';
+import { Formik } from 'formik';
 import * as Yup from 'yup';
-
-const SignUp = () => {
+import AppStyles from '../../styles/Styles';
+import { useNavigation } from '@react-navigation/native';
+export default function SignUp (){
+  const navigation = useNavigation();
   const validateSchema = Yup.object().shape({
-    userId: Yup.string().min(2).max(25).required("Please enter your name"),
-    email: Yup.string().email().required("Please enter your email"),
-    password: Yup.string().min(6).required("Please enter your password"),
-    confirm_password: Yup.string()
+    name: Yup.string().required("enter name"),
+    email: Yup.string().email().required("enter email"),
+    password: Yup.string().required("enter password"),
+    confirmPassword: Yup.string()
       .required()
-      .oneOf([Yup.ref("password"), null], "Password must match"),
+      .oneOf([Yup.ref("password"), null], "password must match"),
   });
 
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
@@ -22,16 +24,18 @@ const SignUp = () => {
       await p;
       console.log(values); // Logs the form values
       resetForm();
-    } catch (error) {
+    } 
+    catch (error) {
       console.error('Error submitting form:', error);
-    } finally {
+    } 
+    finally {
       setSubmitting(false); // Set isSubmitting to false when submission is complete
     }
   };
 
   return (
     <Formik
-      initialValues={{ userId: '', email: '', password: '', confirm_password: '' }}
+      initialValues={{ name: '', email: '', password: '', confirmPassword: '' }}
       validationSchema={validateSchema}
       onSubmit={handleSubmit}
     >
@@ -39,103 +43,79 @@ const SignUp = () => {
         <View style={{gap:20}}>
           <View style={[AppStyles.itemContainer]}>
             <TextInput
-              style={[AppStyles.input,AppStyles.fontFamily]}
-              onChangeText={handleChange('userId')}
-              onBlur={handleBlur('userId')}
-              value={values.userId}
-              placeholder="Enter your UserID"
+            style={[AppStyles.input,AppStyles.fontFamily]}
+              onChangeText={handleChange('name')}
+              onBlur={handleBlur('name')}
+              value={values.name}
+              placeholder="Username"
             />
             <View style={{ width:'80%',alignItems:'flex-start'}}>
-              {touched.userId && errors.userId && <Text>{errors.userId}</Text>}
+            {touched.name && errors.name && <Text style={AppStyles.inputError}>{errors.name}</Text>}
             </View>
           </View>
 
           <View style={[AppStyles.itemContainer]}>
             <TextInput
-              style={[AppStyles.input,AppStyles.fontFamily]}
-              onChangeText={handleChange('Enter you email')}
+            style={[AppStyles.input,AppStyles.fontFamily]}
+              onChangeText={handleChange('email')}
               onBlur={handleBlur('email')}
               value={values.email}
               placeholder="Email"
             />
-            {touched.email && errors.email && <Text>{errors.email}</Text>}
+            <View style={{ width:'80%',alignItems:'flex-start'}}>
+            {touched.email && errors.email && <Text style={AppStyles.inputError}>{errors.email}</Text>}
+            </View>
           </View>
 
-          <View>
+          <View style={AppStyles.itemContainer}>
             <TextInput
+            style={[AppStyles.input,AppStyles.fontFamily]}
               onChangeText={handleChange('password')}
               onBlur={handleBlur('password')}
               value={values.password}
               placeholder="Password"
               secureTextEntry={true}
             />
-            {touched.password && errors.password && <Text>{errors.password}</Text>}
+            <View style={{ width:'80%',alignItems:'flex-start'}}>
+            {touched.password && errors.password && <Text style={AppStyles.inputError}>{errors.password}</Text>}
+            </View>
           </View>
 
-          <View>
+          <View style={AppStyles.itemContainer}>
             <TextInput
-              onChangeText={handleChange('confirm_password')}
-              onBlur={handleBlur('confirm_password')}
-              value={values.confirm_password}
-              placeholder="Confirm Password"
+            style={[AppStyles.input,AppStyles.fontFamily]}
+              onChangeText={handleChange('confirmPassword')}
+              onBlur={handleBlur('confirmPassword')}
+              value={values.confirmPassword}
+              placeholder="Re-enter Password"
               secureTextEntry={true}
             />
-            {touched.confirm_password && errors.confirm_password && <Text>{errors.confirm_password}</Text>}
+            <View style={{ width:'80%',alignItems:'flex-start'}}>
+              {touched.confirmPassword && errors.confirmPassword && <Text style={AppStyles.inputError}>{errors.confirmPassword}</Text>}
+            </View>
           </View>
 
-          <View style={AppStyles.container}>
+          <View style={AppStyles.itemContainer}>
             <Pressable
               onPress={handleSubmit}
               disabled={isSubmitting || !isValid} // Disable the button when isSubmitting or form is invalid
               style={AppStyles.button}
             >
-              <Text style={[AppStyles.fontFamily, AppStyles.buttonText]}>
+              <Text style={[{fontFamily:'Poppins Bold'} , AppStyles.buttonText]}>
                 {isSubmitting ? 'Signing up...' : 'SignUp'}
               </Text>
             </Pressable>
+          </View>
+
+          <View style={AppStyles.itemContainer}>
+          <Text style={[AppStyles.fontFamily,{fontSize:17}]}> Already have an Account? <Text  
+            style={{fontFamily:'Poppins Bold',color:'#1C5739',}}
+            onPress={() => navigation.navigate('Signin')}
+          >Sign in
+          </Text></Text>
           </View>
         </View>
       )}
     </Formik>
   );
 };
-
-const AppStyles = StyleSheet.create({
-    container:{
-        flex:1,
-        alignItems:'center',
-    },
-    fontFamily:{
-        fontFamily:'Poppins',
-    },
-    inputContainer:{
-        marginRight:54,
-        marginLeft:54,
-    },
-    input:{
-        marginBottom:17,
-        flex:1,
-        fontSize:15,
-        fontWeight:300,
-        paddingTop:14,
-        paddingBottom:14,
-        paddingHorizontal:23,
-        color:'#000000'
-    },
-    button:{
-        backgroundColor:'#1C5739',
-        height:60,
-        width:287,
-        flex:1,
-        alignItems:'center',
-        justifyContent:'center',
-    },
-    buttonText:{
-        color:'#fff',
-        fontWeight:700,
-        fontSize:28,
-    },
-
-});
-
-export default SignUp;
