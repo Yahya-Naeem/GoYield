@@ -1,9 +1,9 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import SignupScreen from '../../screens/signup/SignupScreen.jsx';
 import Login from '../../screens/login/Login.jsx';
 import WelcomeScreen from '../../screens/welcome/WelcomeScreen.jsx';
 import ForgotPassword from '../../components/forgotpassword/ForgotPassword.jsx';
+import HomeScreen from '../../screens/home/HomeScreen.jsx';
 const Tab = createBottomTabNavigator();
 
 export default function OuterTabs() {
