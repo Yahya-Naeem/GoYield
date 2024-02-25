@@ -36,20 +36,24 @@ const SignUp = () => {
       onSubmit={handleSubmit}
     >
       {({ handleChange, handleBlur, handleSubmit, resetForm, values, errors, touched, isSubmitting, isValid }) => (
-        <View>
-          <View>
+        <View style={{gap:20}}>
+          <View style={[AppStyles.itemContainer]}>
             <TextInput
+              style={[AppStyles.input,AppStyles.fontFamily]}
               onChangeText={handleChange('userId')}
               onBlur={handleBlur('userId')}
               value={values.userId}
-              placeholder="Username"
+              placeholder="Enter your UserID"
             />
-            {touched.userId && errors.userId && <Text>{errors.userId}</Text>}
+            <View style={{ width:'80%',alignItems:'flex-start'}}>
+              {touched.userId && errors.userId && <Text>{errors.userId}</Text>}
+            </View>
           </View>
 
-          <View>
+          <View style={[AppStyles.itemContainer]}>
             <TextInput
-              onChangeText={handleChange('email')}
+              style={[AppStyles.input,AppStyles.fontFamily]}
+              onChangeText={handleChange('Enter you email')}
               onBlur={handleBlur('email')}
               value={values.email}
               placeholder="Email"
