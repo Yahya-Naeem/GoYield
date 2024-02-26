@@ -24,6 +24,7 @@ export default function SignUp (){
       await p;
       console.log(values); // Logs the form values
       resetForm();
+      navigation.navigate('Home');
     } 
     catch (error) {
       console.error('Error submitting form:', error);

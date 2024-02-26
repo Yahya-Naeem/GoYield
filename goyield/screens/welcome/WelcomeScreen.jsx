@@ -6,7 +6,7 @@ export default function WelcomeScreen() {
   return (
     <View style={AppStyles.container}>
       <View style={[AppStyles.itemContainer]}>
-            <WelcomeLogo  /> 
+        <WelcomeLogo  /> 
       </View>
       <Welcome/>
     </View>

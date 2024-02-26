@@ -8,8 +8,8 @@ import { useNavigation } from '@react-navigation/native';
 const SignIn = () => {
   const navigation = useNavigation();
   const validateSchema = Yup.object().shape({
-    userId: Yup.string().required('Required'),
-    password: Yup.string().required('Required'),
+    userId: Yup.string().required('enter id'),
+    password: Yup.string().required('enter password'),
   });
 
 const handleSubmit = async (values, { setSubmitting, resetForm }) => {
@@ -25,6 +25,7 @@ const handleSubmit = async (values, { setSubmitting, resetForm }) => {
     console.error('Error submitting form:', error);
   } finally {
     setSubmitting(false);
+    navigation.navigate('Home');
   }
 };
 
@@ -54,21 +55,22 @@ const handleSubmit = async (values, { setSubmitting, resetForm }) => {
           <View style={[AppStyles.itemContainer]}>
             <TextInput
               style={[AppStyles.input,AppStyles.fontFamily]}
-              placeholderStyle
               onChangeText={handleChange('password')}
               onBlur={handleBlur('password')}
               value={values.password}
               placeholder="Enter Password"
               secureTextEntry={true}
             />
-          <Text  
-            style={{fontFamily:'Poppins',color:'#1C5739',alignSelf: 'flex-end', paddingRight: 35,}}
-            onPress={() => navigation.navigate('ForgotPassword')}
-          > Forgot Password? 
-          </Text>
             <View style={{ width:'80%',alignItems:'flex-start'}}>
-              {touched.userId && errors.userId && <Text style={AppStyles.inputError}>{errors.userId}</Text>}
+              {touched.password && errors.password && <Text style={AppStyles.inputError}>{errors.password}</Text>}
             </View>
+          </View>
+          <View style={{width:'90%'}}>
+            <Text  
+                style={[AppStyles.fontFamily,{alignSelf: 'flex-end', color:'#1C5739', textDecorationLine:'underline'}]}
+                onPress={() => navigation.navigate('ForgotPassword')}
+            >Forgot Password? 
+            </Text>
           </View>
           {/**Button */}
           <View style={AppStyles.itemContainer}>
@@ -87,8 +89,8 @@ const handleSubmit = async (values, { setSubmitting, resetForm }) => {
           <Text style={[AppStyles.fontFamily,{fontSize:17}]}> 
           Don't have an Account? 
           <Text  
-          style={{fontFamily:'Poppins Bold',color:'#1C5739',}}
-          onPress={() => navigation.navigate('Signup')}
+            style={{fontFamily:'Poppins Bold',color:'#1C5739',}}
+            onPress={() => navigation.navigate('Signup')}
           > Sign up
           </Text>
           </Text>

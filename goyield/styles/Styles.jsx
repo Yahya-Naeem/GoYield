@@ -36,7 +36,7 @@ const AppStyles = StyleSheet.create({
         alignItems:'center',
     },
     fontFamily:{
-        fontFamily:'Poppins Light ,Light',
+        fontFamily:'Poppins Light',
         color:'#000000',
     },
     input:{

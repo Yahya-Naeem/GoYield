@@ -1,6 +1,6 @@
 import React from 'react'
 import 'react-native-gesture-handler';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from '../../screens/home/HomeScreen.jsx';
 import FeedbackScreen from '../../screens/feedback/FeedbackScreen.jsx';
 import ScheduleCropsScreen from '../../screens/schedulecrops/ScheduleCropsScreen.jsx';
@@ -9,6 +9,8 @@ import UserManualScreen from '../../screens/usermanual/UserManualScreen.jsx';
 import VideoTutorialScreen from '../../screens/videotutorial/VideoTutorialScreen.jsx';
 import CropDetailScreen from '../../screens/cropdetail/CropDetailScreen.jsx';
 
+//creating stack object 
+const Stack = createStackNavigator();
 export default function InnerNavigator() {
   return (
       <Stack.Navigator>

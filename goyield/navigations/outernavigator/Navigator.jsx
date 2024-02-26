@@ -3,7 +3,7 @@ import SignupScreen from '../../screens/signup/SignupScreen.jsx';
 import Login from '../../screens/login/Login.jsx';
 import WelcomeScreen from '../../screens/welcome/WelcomeScreen.jsx';
 import ForgotPassword from '../../components/forgotpassword/ForgotPassword.jsx';
-import HomeScreen from '../../screens/home/HomeScreen.jsx';
+import InnerNavigator from '../innernavigator/Navigator.jsx';
 const Tab = createBottomTabNavigator();
 
 export default function OuterTabs() {
@@ -14,8 +14,8 @@ export default function OuterTabs() {
         }}
         >
           <Tab.Screen 
-          component={WelcomeScreen}
           name="Welcome"
+          component={WelcomeScreen}
           options={{
             tabBarStyle: { display: "none" },
           }}
@@ -40,6 +40,10 @@ export default function OuterTabs() {
             options={{
               tabBarStyle: { display: "none" },
            }}
+          />
+          <Tab.Screen 
+          name={'InnerNavigator'}
+          component={InnerNavigator}
           />
       </Tab.Navigator>
   );
