@@ -67,7 +67,7 @@ const handleSubmit = async (values, { setSubmitting, resetForm }) => {
           > Forgot Password? 
           </Text>
             <View style={{ width:'80%',alignItems:'flex-start'}}>
-              {touched.userId && errors.userId && <Text style={AppStyles.inputError}>{errors.userId}</Text>}
+              {touched.password && errors.password && <Text style={AppStyles.inputError}>{errors.password}</Text>}
             </View>
           </View>
           {/**Button */}
