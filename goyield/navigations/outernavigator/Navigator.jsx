@@ -6,6 +6,7 @@ import ForgotPassword from '../../components/forgotpassword/ForgotPassword.jsx';
 import HomeScreen from '../../screens/home/HomeScreen.jsx';
 import InnerNavigator from '../innernavigator/Navigator.jsx';
 const Tab = createBottomTabNavigator();
+import ScheduleCrops from '../../screens/schedulecrops/ScheduleCropsScreen.jsx';
 
 export default function OuterTabs() {
   return (
@@ -14,6 +15,11 @@ export default function OuterTabs() {
           headerShown:false,
         }}
         >
+          <Tab.Screen 
+            name="ScheduleCrops" 
+            component={ScheduleCrops} 
+            options={{ title: 'Schedule Crops' }}
+          />
           <Tab.Screen 
           component={WelcomeScreen}
           name="Welcome"
