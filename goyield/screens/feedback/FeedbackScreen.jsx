@@ -1,7 +1,10 @@
 import React from 'react'
+import { View } from 'react-native'
 
-export const FeedbackScreen = () => {
+const FeedbackScreen = () => {
   return (
-    <div>FeedbackScreen</div>
+    <View>feedback </View>
   )
 }
+
+export default FeedbackScreen;
