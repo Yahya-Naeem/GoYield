@@ -1,8 +1,8 @@
-import React from 'react'
-import { View,Text } from 'react-native'
-import AppStyles from '../../styles/Styles';
-import { EllipseIcon, TopEllipseIcon, WelcomeIcon } from '../../assets/svgs/index.js';
-function ScheduleCropsScreen() {
+import React from 'react';
+import { View , Text } from 'react-native';
+import { EllipseIcon, TopEllipseIcon } from '../../assets/svgs/index.js';
+import AppStyles from '../../styles/Styles.jsx';
+export default function SettingsScreen() {
   return (
     <View style={AppStyles.container}>
       <View style={{position:'absolute',top:-20,left:0}}>
@@ -11,9 +11,7 @@ function ScheduleCropsScreen() {
       <View style={{position:'absolute',left:-20,top:0}}>
               <EllipseIcon width={165} height={165} />
       </View>
-      <Text>schedule crops screen</Text>
+      <Text>Setting Screen</Text>
     </View>
   )
 }
-
-export default ScheduleCropsScreen;

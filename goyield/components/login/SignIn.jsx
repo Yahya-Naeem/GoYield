@@ -21,12 +21,12 @@ const handleSubmit = async (values, { setSubmitting, resetForm }) => {
     await p;
     console.log(values); // Logs the form values
     resetForm();
+    navigation.navigate('InnerNavigation');
   } catch (error) {
     console.error('Error submitting form:', error);
   } finally {
     setSubmitting(false);
   }
-  navigation.navigate('InnerNavigation');
 };
 
   return (
