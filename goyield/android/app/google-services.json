@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "741002414006",
+    "project_id": "goyield-c32c4",
+    "storage_bucket": "goyield-c32c4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:741002414006:android:1f806cce1def5fbe966317",
+        "android_client_info": {
+          "package_name": "com.goyield"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZIw7o8NAAHoSlaYd_CBIXQqrcb1BYuPo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

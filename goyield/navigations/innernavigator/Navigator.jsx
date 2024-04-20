@@ -8,14 +8,15 @@ import TrackCropsScreen from '../../screens/trackcrops/TrackCropsScreen.jsx';
 import UserManualScreen from '../../screens/usermanual/UserManualScreen.jsx';
 import VideoTutorialScreen from '../../screens/videotutorial/VideoTutorialScreen.jsx';
 import CropDetailScreen from '../../screens/cropdetail/CropDetailScreen.jsx';
+import HomeNavigator from '../homenavigator/Navigator.jsx';
 const Stack = createNativeStackNavigator(); 
 export default function InnerNavigator() {
   return (
       <Stack.Navigator>
         <Stack.Screen 
-            name="Home" 
-            component={HomeScreen} 
-            options={{ title: 'Home Screen' }}
+            name="HomeNavigator" 
+            component={HomeNavigator} 
+            options={{ headerShown:false }}
         />
         <Stack.Screen 
             name="Feedback" 
@@ -38,12 +39,12 @@ export default function InnerNavigator() {
             options={{ title: 'Video Tutorials' }}
         />
         <Stack.Screen 
-            name="usermanual" 
+            name="UserManual" 
             component={UserManualScreen}
             options={{ title: 'User Manuals' }}
         />
         <Stack.Screen 
-            name="cropdetails" 
+            name="CropDetails" 
             component={CropDetailScreen}
             options={{ title: 'Crop Details' }}
         />
