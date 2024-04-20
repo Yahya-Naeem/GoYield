@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 import { Formik, Form, Field } from 'formik';
 import AppStyles from '../../styles/Styles';
 import { useNavigation } from '@react-navigation/native';
-//import { ALERT_TYPE, Dialog, AlertNotificationRoot, Toast } from 'react-native-alert-notification';
+import { ALERT_TYPE, AlertNotification } from 'react-native-alert-notification';
 
 const ForgotPassword = () => {
   const navigation = useNavigation();
@@ -63,15 +63,7 @@ const handleSubmit = async (values, { setSubmitting, resetForm }) => {
               </Text>
             </Pressable>
           </View>
-          <AlertNotification.Root>
-          <View>
-            <Button 
-                style={{color:'black'}}
-                //title={'dialog box'} 
-                
-            />
-           </View>
-           </AlertNotification.Root>
+
 
           <View style={AppStyles.itemContainer}>
           <Text style={[AppStyles.fontFamily,{fontSize:17}]}> 

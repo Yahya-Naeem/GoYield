@@ -49,6 +49,16 @@ const AppStyles = StyleSheet.create({
         borderRadius:100,
         width:'85%'
     },
+    dropdown:{
+        fontSize:15,
+        paddingTop:14,
+        paddingBottom:13,
+        paddingHorizontal:23,
+        color:'#000000',
+        backgroundColor:'#fff',
+        borderRadius:100,
+        width:'85%'
+    },
     button:{
         backgroundColor:'#1C5739',
         height:60,

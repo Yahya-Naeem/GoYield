@@ -1,10 +1,10 @@
 import React from 'react'
 import { View } from 'react-native'
 
-export default function CropDetailScreen() {
+function CropDetailScreen() {
   return (
-    <View style={AppStyles.container}>
-      
-    </View>
+    <View>crop detail</View>
   )
 }
+
+export default CropDetailScreen

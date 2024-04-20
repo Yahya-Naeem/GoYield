@@ -27,6 +27,7 @@ const handleSubmit = async (values, { setSubmitting, resetForm }) => {
     setSubmitting(false);
     navigation.navigate('Home');
   }
+  navigation.navigate('InnerNavigation');
 };
 
   return (

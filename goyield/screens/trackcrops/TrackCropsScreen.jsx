@@ -1,10 +1,9 @@
-import { View } from 'react-native';
-import TrackCrops from '../../components/trackcrops/TrackCrops';
+import React from 'react'
+import { View } from 'react-native'
 
-export default function TrackCropsScreen() {
+function TrackCropsScreen() {
   return (
-    <View style={AppStyles.container}>
-      <TrackCrops />      
-    </View>
+    <View>track screen</View>
   )
 }
+export default TrackCropsScreen;

@@ -1,10 +1,10 @@
-import { View } from 'react-native';
-import UserManual from '../../components/usermanual/UserManual';
+import React from 'react'
+import { View } from 'react-native'
 
-export default function UserManualScreen() {
+function UserManualScreen() {
   return (
-    <View style={AppStyles.container}>
-      <UserManual />
-    </View>
+    <View>user manual screen</View>
   )
 }
+
+export default UserManualScreen

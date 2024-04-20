@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { SearchIcon, VideoIcon, UserManualIcon, LeafIcon, FeedbackIcon, ScheduleIcon } from '../../assets/svgs/index';
 import {View, Text, Dimensions} from 'react-native';
 import AppStyles from '../../styles/Styles';
+import { useNavigation } from '@react-navigation/native';
 
 export default function Home() {
     const [parentWidth, setParentWidth] = useState(0);   //width of parent view component
+    const navigator = useNavigation;
     const handleParentWidth = (event) => {
     /*
     Function to calculate width of View component 
@@ -15,7 +17,10 @@ export default function Home() {
     return (
       <View style={{gap:20}}>
         <View style={[AppStyles.row]}>
-        <View style={AppStyles.rowItem} onLayout={handleParentWidth}>
+        <View 
+            style={AppStyles.rowItem} 
+            onLayout={handleParentWidth}
+            onClick={()=> navigator.navigate('ScheduleCrops')} >
             <ScheduleIcon width={parentWidth * 0.35} height={parentWidth * 0.375} />
             <Text style={AppStyles.rowText}>Schedule</Text>
         </View>

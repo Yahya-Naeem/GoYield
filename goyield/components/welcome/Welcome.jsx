@@ -16,7 +16,7 @@ export default function Welcome() {
         <View style={[AppStyles.itemContainer]}>
         <Pressable
         style={[AppStyles.button,{marginTop:96}]}
-        onPress={()=>{navigation.navigate('InnerNavigator')}}
+        onPress={()=>{navigation.navigate('Signin')}}
         >
             <Text style={[AppStyles.buttonText,{fontFamily:'Poppins Bold'}]}>Get Started</Text>
         </Pressable>

@@ -3,8 +3,10 @@ import SignupScreen from '../../screens/signup/SignupScreen.jsx';
 import Login from '../../screens/login/Login.jsx';
 import WelcomeScreen from '../../screens/welcome/WelcomeScreen.jsx';
 import ForgotPassword from '../../components/forgotpassword/ForgotPassword.jsx';
+import HomeScreen from '../../screens/home/HomeScreen.jsx';
 import InnerNavigator from '../innernavigator/Navigator.jsx';
 const Tab = createBottomTabNavigator();
+import ScheduleCrops from '../../screens/schedulecrops/ScheduleCropsScreen.jsx';
 
 export default function OuterTabs() {
   return (
@@ -14,8 +16,13 @@ export default function OuterTabs() {
         }}
         >
           <Tab.Screen 
-          name="Welcome"
+            name="ScheduleCrops" 
+            component={ScheduleCrops} 
+            options={{ title: 'Schedule Crops' }}
+          />
+          <Tab.Screen 
           component={WelcomeScreen}
+          name="Welcome"
           options={{
             tabBarStyle: { display: "none" },
           }}
@@ -41,9 +48,12 @@ export default function OuterTabs() {
               tabBarStyle: { display: "none" },
            }}
           />
-          <Tab.Screen 
-          name={'InnerNavigator'}
-          component={InnerNavigator}
+          <Tab.Screen
+            name="InnerNavigation"
+            component={InnerNavigator}
+            options={{
+              tabBarStyle: { display: "none" },
+           }}
           />
       </Tab.Navigator>
   );

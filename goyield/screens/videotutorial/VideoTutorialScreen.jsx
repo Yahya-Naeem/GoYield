@@ -1,10 +1,10 @@
-import { View } from 'react-native';
-import VideoTutorial from '../../components/videotutorial/VideoTutorial';
+import React from 'react'
+import { View } from 'react-native'
 
-export default function VideoTutorialScreen() {
+function VideoTutorialScreen() {
   return (
-    <View style={AppStyles.container}>
-      <VideoTutorial />
-    </View>
+    <View>video tutorial screen</View>
   )
 }
+
+export default VideoTutorialScreen;

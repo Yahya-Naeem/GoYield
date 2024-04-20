@@ -8,9 +8,7 @@ import TrackCropsScreen from '../../screens/trackcrops/TrackCropsScreen.jsx';
 import UserManualScreen from '../../screens/usermanual/UserManualScreen.jsx';
 import VideoTutorialScreen from '../../screens/videotutorial/VideoTutorialScreen.jsx';
 import CropDetailScreen from '../../screens/cropdetail/CropDetailScreen.jsx';
-
-//creating stack object 
-const Stack = createStackNavigator();
+const Stack = createNativeStackNavigator(); 
 export default function InnerNavigator() {
   return (
       <Stack.Navigator>
