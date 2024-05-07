@@ -22,7 +22,7 @@ export default function Home() {
 
         {/**Row 1 */}
         <View style={[AppStyles.row]}>
-            <Pressable onPress={() => onPressSchedule('ScheduleCrops')} > 
+            <Pressable onPress={() => onPressSchedule('ScheduleNavigation')} > 
                 <View 
                     style={AppStyles.rowItem} onLayout={handleParentWidth}>
                         <ScheduleIcon width={parentWidth * 0.35} height={parentWidth * 0.375} />

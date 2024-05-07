@@ -35,9 +35,13 @@ const AppStyles = StyleSheet.create({
     itemContainer:{
         alignItems:'center',
     },
+    clrText:{
+        color:'#1C5739',
+    },
     fontFamily:{
         fontFamily:'Poppins Light',
         color:'#000000',
+        fontSize:15,
     },
     input:{
         fontSize:15,
@@ -51,13 +55,13 @@ const AppStyles = StyleSheet.create({
     },
     dropdown:{
         fontSize:15,
-        paddingTop:14,
-        paddingBottom:13,
-        paddingHorizontal:23,
-        color:'#000000',
+        //paddingTop:12,
+        //paddingBottom:11,
+        //paddingLeft:17,
         backgroundColor:'#fff',
         borderRadius:100,
-        width:'85%'
+        width:'85%',
+        height:'260px'
     },
     button:{
         backgroundColor:'#1C5739',
@@ -66,12 +70,37 @@ const AppStyles = StyleSheet.create({
         alignItems:'center',
         justifyContent:'center',
     },
+    index:{
+        backgroundColor:'#1C5739',
+        height: 39,
+        width: 37,
+        borderRadius:100,
+    },
+    displayOption:{
+        backgroundColor:'#fff',
+        paddingHorizontal:29,
+        paddingVertical:7,
+        flexDirection:'row',
+        borderRadius:25,
+        width:'70%',
+        justifyContent:'space-between' ,
+        alignItems:'center',
+        marginTop:20
+    },
     buttonText:{
         color:'#fff',
         fontSize:28,
+        fontWeight:'bold',
     },
     inputError:{
         color:'red',
+    },
+    instructionContainer:{
+        backgroundColor:'#fff',
+        height:'70%',
+        width:'80%',
+        borderRadius:25,
     }
+
 });
 export default AppStyles;

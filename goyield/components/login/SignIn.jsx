@@ -4,6 +4,7 @@ import * as Yup from 'yup';
 import { Formik, Form, Field } from 'formik';
 import AppStyles from '../../styles/Styles';
 import { useNavigation } from '@react-navigation/native';
+import auth from '@react-native-firebase/auth';
 
 const SignIn = () => {
   const navigation = useNavigation();
@@ -11,22 +12,27 @@ const SignIn = () => {
     userId: Yup.string().required('enter id'),
     password: Yup.string().required('enter password'),
   });
-
 const handleSubmit = async (values, { setSubmitting, resetForm }) => {
   try {
     setSubmitting(true); // Set isSubmitting to true when the form starts submitting
-    console.log('clicked');
     // Perform additional actions with the form values here
-    const p = new Promise(resolve => setTimeout(resolve, 3000));
-    await p;
-    console.log(values); // Logs the form values
+    //const p = new Promise(resolve => setTimeout(resolve, 3000));
+    //await p;
+    //console.log(values); // Logs the form values
+    console.log('email and password',values.userId,values.password);
+    //await auth().signInWithEmailAndPassword(values.userId, values.password);
     resetForm();
     navigation.navigate('InnerNavigation');
   } catch (error) {
     console.error('Error submitting form:', error);
-  } finally {
-    setSubmitting(false);
-    navigation.navigate('Home');
+    if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password') {
+      // Display error message to the user indicating invalid credentials
+      alert('Invalid email or password. Please try again.');
+    } else {
+      // Display a generic error message for other authentication errors
+      alert('An error occurred. Please try again later.',error);
+      console.log(error);
+    }
   }
 };
 
@@ -104,3 +110,4 @@ const handleSubmit = async (values, { setSubmitting, resetForm }) => {
 };
 
 export default SignIn;
+

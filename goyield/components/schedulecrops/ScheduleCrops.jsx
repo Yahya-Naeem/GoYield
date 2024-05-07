@@ -16,10 +16,8 @@ const ScheduleCrops = () => {
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
     try {
       setSubmitting(true); // Set isSubmitting to true when the form starts submitting
-      console.log('clicked');
       // Perform additional actions with the form values here
-      const p = new Promise(resolve => setTimeout(resolve, 3000));
-      await p;
+      navigation.navigate('SearchSchedule');
       console.log(values); // Logs the form values
       resetForm();
     } catch (error) {
@@ -39,8 +37,10 @@ const ScheduleCrops = () => {
             <View style = {{gap:20}}>
                 {/** Region */}
                 <View style={[AppStyles.itemContainer]}>
-                    <Text style={[AppStyles.fontFamily,{fontSize:17},{alignSelf:'flex-start'},{paddingLeft: 50},]}>Select a language: </Text>
-                    <View style={[AppStyles.dropdown,AppStyles.fontFamily]}>
+                    {/* <Text style={[AppStyles.rowTexts,{alignSelf:'flex-start'},{paddingLeft: 50},]}>
+                        Select a language: 
+                    </Text> */}
+                    <View style={[AppStyles.dropdown]}>
                         <Picker
                             selectedValue={'none'}
                             onValueChange={handleChange('region')}
@@ -62,7 +62,7 @@ const ScheduleCrops = () => {
                 </View>
                 {/** Crop */}
                 <View style={[AppStyles.itemContainer]}>
-                    <Text style={[AppStyles.fontFamily,{fontSize:17},{alignSelf:'flex-start'},{paddingLeft: 50},]}>Select a language: </Text>
+                    {/* <Text style={[AppStyles.fontFamily,{fontSize:17},{alignSelf:'flex-start'},{paddingLeft: 50},]}>Select a language: </Text> */}
                     <View style={[AppStyles.dropdown,AppStyles.fontFamily]}>
                         <Picker
                             selectedValue={'none'}
@@ -92,7 +92,7 @@ const ScheduleCrops = () => {
                         style={[AppStyles.button,{marginTop:86}]}
                         >
                         <Text style={[{fontFamily:'Poppins Bold'} , AppStyles.buttonText]}>
-                            {isSubmitting ? 'Searching...' : 'Schedule'}
+                            {isSubmitting ? 'Searching...' : 'Search'}
                         </Text>
                     </Pressable>
                 </View>
