@@ -3,6 +3,7 @@ import React from 'react'
 import { View ,Text, AppState} from 'react-native'
 import AppStyles from '../../styles/Styles';
 import { EllipseIcon, TopEllipseIcon } from '../../assets/svgs/index.js';
+import Feedback from '../../components/feedback/Feedback.jsx';
 
 const FeedbackScreen = () => {
   route = useRoute();
@@ -14,9 +15,7 @@ const FeedbackScreen = () => {
       <View style={{position:'absolute',left:-20,top:0}}>
               <EllipseIcon width={165} height={165} />
       </View>
-      <Text>
-        {route.name}
-      </Text>
+      <Feedback />
     </View>
   )
 }

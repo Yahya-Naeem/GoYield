@@ -3,6 +3,7 @@ import React from 'react'
 import { View, Text } from 'react-native'
 import AppStyles from '../../styles/Styles';
 import { EllipseIcon, TopEllipseIcon} from '../../assets/svgs/index.js';
+import UserManual from '../../components/usermanual/UserManual.jsx';
 function UserManualScreen() {
   route = useRoute() ;
   return (
@@ -13,9 +14,7 @@ function UserManualScreen() {
       <View style={{position:'absolute',left:-20,top:0}}>
               <EllipseIcon width={165} height={165} />
       </View>
-      <Text>
-        {route.name}
-      </Text>
+      <UserManual />
     </View>
   )
 }

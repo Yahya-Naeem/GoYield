@@ -16,11 +16,6 @@ export default function OuterTabs() {
         }}
         >
           <Tab.Screen 
-            name="ScheduleCrops" 
-            component={ScheduleCrops} 
-            options={{ title: 'Schedule Crops' }}
-          />
-          <Tab.Screen 
           component={WelcomeScreen}
           name="Welcome"
           options={{

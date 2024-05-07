@@ -9,7 +9,8 @@ import UserManualScreen from '../../screens/usermanual/UserManualScreen.jsx';
 import VideoTutorialScreen from '../../screens/videotutorial/VideoTutorialScreen.jsx';
 import CropDetailScreen from '../../screens/cropdetail/CropDetailScreen.jsx';
 import HomeNavigator from '../homenavigator/Navigator.jsx';
-const Stack = createNativeStackNavigator(); 
+import ScheduleNavigation from '../schedulenavigator/Navigator.jsx';
+const Stack = createStackNavigator(); 
 export default function InnerNavigator() {
   return (
       <Stack.Navigator>
@@ -24,8 +25,8 @@ export default function InnerNavigator() {
             options={{ title: 'Feedback' }}
         />
         <Stack.Screen 
-            name="ScheduleCrops" 
-            component={ScheduleCropsScreen}
+            name="ScheduleNavigation" 
+            component={ScheduleNavigation}
             options={{ title: 'Schedule Crops' }}
         />
         <Stack.Screen 
