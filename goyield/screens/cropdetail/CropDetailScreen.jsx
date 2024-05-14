@@ -1,8 +1,9 @@
 import { useRoute } from '@react-navigation/native'
 import React from 'react'
-import { View ,Text } from 'react-native'
+import { View } from 'react-native'
 import { EllipseIcon, TopEllipseIcon} from '../../assets/svgs/index.js';
 import AppStyles from '../../styles/Styles.jsx';
+import CropDetail from '../../components/cropdetail/CropDetail.jsx';
 
 function CropDetailScreen() {
   route = useRoute();
@@ -14,9 +15,7 @@ function CropDetailScreen() {
       <View style={{position:'absolute',left:-20,top:0}}>
               <EllipseIcon width={165} height={165} />
       </View>
-      <Text>
-        {route.name}
-      </Text>
+    <CropDetail />
     </View>
   )
 }

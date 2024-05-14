@@ -4,33 +4,33 @@ import * as Yup from 'yup';
 import { Formik, Form, Field } from 'formik';
 import AppStyles from '../../styles/Styles';
 import { useNavigation } from '@react-navigation/native';
-import { ALERT_TYPE, AlertNotification } from 'react-native-alert-notification';
+import auth from '@react-native-firebase/auth';
 
 const ForgotPassword = () => {
   const navigation = useNavigation();
   const validateSchema = Yup.object().shape({
-    userId: Yup.string().required('Required'),
+    email: Yup.string().required('Required'),
   });
 
-const handleSubmit = async (values, { setSubmitting, resetForm }) => {
-  try {
-    setSubmitting(true); // Set isSubmitting to true when the form starts submitting
-    console.log('clicked');
-    // Perform additional actions with the form values here
-    const p = new Promise(resolve => setTimeout(resolve, 3000));
-    await p;
-    console.log(values); // Logs the form values
-    resetForm();
-  } catch (error) {
-    console.error('Error submitting form:', error);
-  } finally {
-    setSubmitting(false);
-  }
-};
+  const handleSubmit = async (values, { setSubmitting, resetForm }) => {
+    try {
+      setSubmitting(true);
+      const email = values.email;
+      await auth().sendPasswordResetEmail(email);
+      console.log('Password reset email sent successfully');
+      alert('A password reset link has been sent to your email.');
+      resetForm();
+    } catch (error) {
+      console.error("Failed to send password reset email", error);
+      alert("Failed to send password reset email. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   return (
       <Formik
-      initialValues={{ userId: ''}}
+      initialValues={{ email: ''}}
       validationSchema={validateSchema}
       onSubmit={handleSubmit}
       >
@@ -41,13 +41,13 @@ const handleSubmit = async (values, { setSubmitting, resetForm }) => {
           <View style={[AppStyles.itemContainer]}>
             <TextInput
               style={[AppStyles.input,AppStyles.fontFamily]}
-              onChangeText={handleChange('userId')}
-              onBlur={handleBlur('userId')}
-              value={values.userId}
-              placeholder="Enter User ID"
+              onChangeText={handleChange('email')}
+              onBlur={handleBlur('email')}
+              value={values.email}
+              placeholder="Email"
             />
             <View style={{ width:'80%',alignItems:'flex-start'}}>
-              {touched.userId && errors.userId && <Text style={AppStyles.inputError}>{errors.userId}</Text>}
+              {touched.email && errors.email && <Text style={AppStyles.inputError}>{errors.email}</Text>}
             </View>
           </View>
           
@@ -59,21 +59,22 @@ const handleSubmit = async (values, { setSubmitting, resetForm }) => {
               style={[AppStyles.button,{marginTop:86}]}
             >
               <Text style={[{fontFamily:'Poppins Bold'} , AppStyles.buttonText]}>
-                {isSubmitting ? 'Submitting...' : 'Submit'}
+                {isSubmitting ? 'Resetting password...' : 'Reset Password'}
               </Text>
             </Pressable>
           </View>
 
 
           <View style={AppStyles.itemContainer}>
-          <Text style={[AppStyles.fontFamily,{fontSize:17}]}> 
-          GO back to 
-          <Text  
-          style={{fontFamily:'Poppins Bold',color:'#1C5739',}}
-          onPress={() => navigation.navigate('Signup')}
-          > Sign up
-          </Text>
-          </Text>
+            <Text style={[AppStyles.fontFamily,{fontSize:17}]}> 
+              GO back to 
+              <Text  
+                style={{fontFamily:'Poppins Bold',color:'#1C5739',}}
+                onPress={() => navigation.navigate('Signup')}
+              > 
+                Sign up
+              </Text>
+            </Text>
           </View>
         </View>
       )}
