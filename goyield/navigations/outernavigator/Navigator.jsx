@@ -7,6 +7,7 @@ import HomeScreen from '../../screens/home/HomeScreen.jsx';
 import InnerNavigator from '../innernavigator/Navigator.jsx';
 const Tab = createBottomTabNavigator();
 import ScheduleCrops from '../../screens/schedulecrops/ScheduleCropsScreen.jsx';
+import ForgetPasswordScreen from '../../screens/forgetpassword/ForgetPasswordScreen.jsx';
 
 export default function OuterTabs() {
   return (
@@ -38,7 +39,7 @@ export default function OuterTabs() {
           />
           <Tab.Screen
             name="ForgotPassword"
-            component={ForgotPassword}
+            component={ForgetPasswordScreen}
             options={{
               tabBarStyle: { display: "none" },
            }}

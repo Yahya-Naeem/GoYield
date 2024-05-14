@@ -29,7 +29,7 @@ const AppStyles = StyleSheet.create({
     },
     rowText:{
         fontSize:17,
-        color:'#000000',
+        color:'#000',
         fontFamily:'Poppins Light',
     },
     itemContainer:{
@@ -70,6 +70,7 @@ const AppStyles = StyleSheet.create({
         alignItems:'center',
         justifyContent:'center',
     },
+
     index:{
         backgroundColor:'#1C5739',
         height: 39,
@@ -82,10 +83,10 @@ const AppStyles = StyleSheet.create({
         paddingVertical:7,
         flexDirection:'row',
         borderRadius:25,
-        width:'70%',
+        width:'100%',
         justifyContent:'space-between' ,
         alignItems:'center',
-        marginTop:20
+        marginBottom:10
     },
     buttonText:{
         color:'#fff',

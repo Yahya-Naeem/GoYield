@@ -14,15 +14,7 @@ function App () {
   return (
     <NavigationContainer>
     <SafeAreaView style={[AppStyles.background]}>
-      <ScrollView
-        contentContainerStyle={AppStyles.container}
-        >
-          
-
-          
-            <OuterTabs />
-          
-      </ScrollView>
+    <OuterTabs />
     </SafeAreaView>
     </NavigationContainer>
   );

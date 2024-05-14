@@ -7,3 +7,4 @@ export {default as FeedbackIcon} from './Feedback.svg';
 export {default as EllipseIcon} from './Ellipse.svg';
 export {default as TopEllipseIcon} from './TopEllipse.svg';
 export {default as WelcomeIcon} from './Welcome.svg';
+export {default as TrackCropsIcon} from './TrackCrops.svg';
