@@ -1,5 +1,5 @@
 import React from 'react';
-import {View,Text,Pressable,FlatList,Dimensions} from 'react-native'
+import {View,Text,Pressable,FlatList} from 'react-native'
 ;import AppStyles from '../../styles/Styles'
 import { useNavigation } from '@react-navigation/native';
 export default function SearchSchedule({schedules,collectionName}) {
