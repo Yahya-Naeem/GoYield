@@ -2,12 +2,9 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import SignupScreen from '../../screens/signup/SignupScreen.jsx';
 import Login from '../../screens/login/Login.jsx';
 import WelcomeScreen from '../../screens/welcome/WelcomeScreen.jsx';
-import ForgotPassword from '../../components/forgotpassword/ForgotPassword.jsx';
-import HomeScreen from '../../screens/home/HomeScreen.jsx';
 import InnerNavigator from '../innernavigator/Navigator.jsx';
-const Tab = createBottomTabNavigator();
-import ScheduleCrops from '../../screens/schedulecrops/ScheduleCropsScreen.jsx';
 import ForgetPasswordScreen from '../../screens/forgetpassword/ForgetPasswordScreen.jsx';
+const Tab = createBottomTabNavigator();
 
 export default function OuterTabs() {
   return (
